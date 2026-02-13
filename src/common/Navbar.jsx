@@ -10,6 +10,7 @@ export default function Navbar() {
       <div className="flex-none">
         <Link to="/newsfeed" className="btn btn-ghost">Newsfeed</Link>
         <Link to="/profile" className="btn btn-ghost">Profile</Link>
+        <Link to="/save" className="btn btn-ghost">Saved</Link>
       </div>
     </div>
   );

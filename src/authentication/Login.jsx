@@ -12,8 +12,8 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await API.post("/user/login/", { email, password });
-      localStorage.setItem("access", res.data.access);
-      localStorage.setItem("refresh", res.data.refresh);
+      localStorage.setItem("access_token", res.data.access);
+      localStorage.setItem("refresh_token", res.data.refresh);
       navigate("/profile");
     } catch {
       setError("Invalid email or password");
