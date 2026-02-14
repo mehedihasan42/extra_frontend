@@ -7,6 +7,9 @@ import Login from "./authentication/Login";
 import Users from "./pages/Users";
 import Layout from "./pages/Layout";
 import Save from "./pages/Save";
+import Followers from "./pages/Followers";
+import Following from "./pages/Following";
+import PublicProfile from "./pages/PublicProfile";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/users" element={<Users />} />
           <Route path="/save" element={<Save />} />
+          <Route path="/followers" element={<Followers />} />
+          <Route path="/following" element={<Following />} />
+          <Route path="/public-profile/:id" element={<PublicProfile />} />
           {/* <Route path="/update-profile" element={<UpdateProfile />} /> */}
         </Route>
           <Route path="/signup" element={<Signup />} />

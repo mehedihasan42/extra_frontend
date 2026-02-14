@@ -10,7 +10,6 @@ export default function Profile() {
 
   const user = JSON.parse(localStorage.getItem("user"));
 
-  // ✅ Get Profile
   const fetchProfile = async () => {
     try {
       const res = await API.get("/profile/");
@@ -26,7 +25,6 @@ export default function Profile() {
     }
   };
 
-  // ✅ Create Profile
   const createProfile = async () => {
     try {
       const res = await API.post("/create_profile/", formData);
@@ -37,7 +35,6 @@ export default function Profile() {
     }
   };
 
-  // ✅ Update Profile
   const updateProfile = async () => {
     try {
       const res = await API.patch("/profile/", formData);
@@ -48,14 +45,12 @@ export default function Profile() {
     }
   };
 
-  // Load profile on page load
   useEffect(() => {
     fetchProfile();
   }, []);
 
   return (
     <div className="flex flex-col items-start p-6">
-
       {/* Profile Info */}
       <div className="flex items-center">
         <div className="avatar">
@@ -66,7 +61,6 @@ export default function Profile() {
             />
           </div>
         </div>
-
         <div className="m-4 font-bold">
           <h1>{user?.username}</h1>
           <p>{profile?.bio}</p>

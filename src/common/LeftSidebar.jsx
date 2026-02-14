@@ -1,28 +1,58 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
 const LeftSidebar = () => {
+
+  const activeClass = "btn btn-primary justify-start text-white";
+  const normalClass = "btn btn-ghost justify-start";
+
   return (
     <div className="w-64 min-h-screen bg-base-200 p-4 flex flex-col">
       
       {/* Logo / Title */}
-      <Link to="/" className="text-2xl font-bold mb-6">
+      <NavLink to="/" className="text-2xl font-bold mb-6">
         <span className='text-blue-600'>Extra</span>book
-      </Link>
+      </NavLink>
 
       {/* Menu Items */}
       <div className="flex flex-col gap-2">
-        <Link to="/newsfeed" className="btn btn-ghost justify-start">
+        
+        <NavLink 
+          to="/newsfeed" 
+          className={({ isActive }) => isActive ? activeClass : normalClass}
+        >
           Newsfeed
-        </Link>
+        </NavLink>
 
-        <Link to="/profile" className="btn btn-ghost justify-start">
+        <NavLink 
+          to="/profile" 
+          className={({ isActive }) => isActive ? activeClass : normalClass}
+        >
           Profile
-        </Link><Link to="/save" className="btn btn-ghost justify-start">
-          Saved
-        </Link>
-      </div>
+        </NavLink>
 
+        <NavLink 
+          to="/save" 
+          className={({ isActive }) => isActive ? activeClass : normalClass}
+        >
+          Saved
+        </NavLink>
+
+        <NavLink 
+          to="/following" 
+          className={({ isActive }) => isActive ? activeClass : normalClass}
+        >
+          Following
+        </NavLink>
+
+        <NavLink 
+          to="/followers" 
+          className={({ isActive }) => isActive ? activeClass : normalClass}
+        >
+          Followers
+        </NavLink>
+
+      </div>
     </div>
   );
 };

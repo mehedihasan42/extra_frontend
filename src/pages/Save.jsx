@@ -20,7 +20,6 @@ export default function Save() {
     API.get("http://localhost:8000/content/save/")
       .then(res => {
         setPosts(res.data);
-        console.log(JSON.stringify(res.data));
       })
       .catch(err => console.error(err.response?.data || err.message));
   }, []);
@@ -100,13 +99,14 @@ export default function Save() {
   return (
     <div>
       {posts.map(item => (
-        <div key={item.id} className="card bg-base-100 w-6/12 shadow-sm p-4 mx-auto">
+        <div key={item.id} className="card bg-base-100 w-96 shadow-xl border-2 border-gray-300 p-4 mx-auto my-2">
           <div className="card-body">
             <h2 className="card-title">{item.post.user}</h2>
             <p>{item.post.caption}</p>
           </div>
           <figure>
             <img
+              className="h-96 w-80"
               src={item.post.photo}
               alt="Shoes" />
           </figure>
@@ -127,7 +127,7 @@ export default function Save() {
               </button>
               <button
                 onClick={() => handleSave(item.post.id, item.post.is_saved)}
-                className={`btn btn-sm`}
+                className='btn btn-sm ml-2'
               >
                 {item.post.is_saved ? "Unsave" : "Save"}
               </button>

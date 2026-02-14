@@ -7,6 +7,7 @@ import { RxUpdate } from "react-icons/rx";
 import { GoTrash } from "react-icons/go";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { savePost, unsavePost } from "../api/saveApi";
+import { Link } from "react-router";
 
 export default function Newsfeed() {
   const [posts, setPosts] = useState([]);
@@ -132,20 +133,19 @@ export default function Newsfeed() {
       console.error("Error saving post:", error);
     }
   };
-
-
-
+  
 
   return (
     <div>
       {posts.map(post => (
-        <div key={post.id} className="card bg-base-100 w-6/12 shadow-sm p-4 mx-auto">
+        <div key={post.id} className="card bg-base-100 w-96 shadow-xl border-2 border-gray-300 p-4 mx-auto my-2">
           <div className="card-body">
             <h2 className="card-title">{post.user}</h2>
             <p>{post.caption}</p>
           </div>
           <figure>
             <img
+            className="h-96 w-80"
               src={post.photo}
               alt="Shoes" />
           </figure>
