@@ -1,10 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 
 const LeftSidebar = () => {
 
   const activeClass = "btn btn-primary justify-start text-white";
   const normalClass = "btn btn-ghost justify-start";
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  }
 
   return (
     <div className="w-64 min-h-screen bg-base-200 p-4 flex flex-col">
@@ -51,7 +59,9 @@ const LeftSidebar = () => {
         >
           Followers
         </NavLink>
-
+          <button onClick={handleLogout} className='btn btn-primary btn-outline'>
+            Log out
+          </button>
       </div>
     </div>
   );
